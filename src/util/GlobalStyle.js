@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 *,
@@ -20,6 +20,15 @@ dd {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
 
 ul[role='list'],
 ol[role='list'] {
@@ -31,9 +40,13 @@ html:focus-within {
 }
 
 body {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.125rem;
+  color: hsl(0 0% 100%);
+  background-color: hsl(230 35% 7%);
   min-height: 100vh;
-  text-rendering: optimizeSpeed;
   line-height: 1.5;
+  text-rendering: optimizeSpeed;
 }
 
 a:not([class]) {
@@ -67,6 +80,6 @@ select {
     scroll-behavior: auto !important;
   }
 }
-`
+`;
 
 export default GlobalStyle;
