@@ -47,6 +47,7 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
+  overflow-x: hidden;
 }
 
 a:not([class]) {

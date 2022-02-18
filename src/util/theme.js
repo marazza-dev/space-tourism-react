@@ -1,8 +1,8 @@
 export const theme = {
   // colors
-  clrDark: "230 35% 7%",
-  clrLight: "231 77% 90%",
-  clrWhite: "0 0% 100%",
+  clrDark: "hsl(230 35% 7%)",
+  clrLight: "hsl(231 77% 90%)",
+  clrWhite: "hsl(0 0% 100%)",
   // font-sizes
   fs900: "9.375rem",
   fs800: "6.25rem",
@@ -16,4 +16,6 @@ export const theme = {
   ffSerif: "Bellefair, serif",
   ffSansCondens: "Barlow Condensed, sans-serif",
   ffSansNormal: "Barlow, sans-serif",
+  // breakpoints
+  mobile: "40em",
 };
