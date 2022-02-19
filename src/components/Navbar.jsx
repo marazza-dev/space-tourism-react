@@ -8,20 +8,34 @@ import closeIcon from "../assets/shared/icon-close.svg";
 
 const StyledHeader = styled.header`
   display: flex;
-  gap: 1.5rem;
-  width: 100%;
+  gap: 1rem;
   border: 1px solid red;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1.5rem;
   & img {
-    margin: 1rem;
+    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+  }
+
+  @media (min-width: ${(props) => props.theme.brMedium}) {
+    &::after {
+      content: "";
+      display: block;
+      position: relative;
+      height: 1px;
+      width: 100%;
+      margin-right: -2.5rem;
+      background: hsl(0 0% 100% / 0.25);
+      order: 1;
+    }
+    & nav {
+      order: 2;
+    }
   }
 `;
 const MenuBotton = styled.button`
   display: none;
 
-  @media (max-width: ${(props) => props.theme.mobile}) {
+  @media (max-width: ${(props) => props.theme.brSmall}) {
     display: block;
     position: absolute;
     z-index: 2000;
@@ -35,19 +49,25 @@ const MenuBotton = styled.button`
     aspect-ratio: 1;
     border: 0;
     cursor: pointer;
+
+    &:focus-visible {
+      outline: 5px solid white;
+      outline-offset: 5px;
+    }
   }
 `;
 
 const StyledList = styled.ul`
   width: 100%;
   display: flex;
-  gap: 1rem;
-  padding: 2rem;
+  gap: clamp(1.5rem, 5vw, 3.5rem);
+  padding: 2.125rem;
   margin: 0;
   list-style: none;
   background: hsl(230 35% 7% / 0.95);
+  opacity: 1;
 
-  @media (max-width: ${(props) => props.theme.mobile}) {
+  @media (max-width: ${(props) => props.theme.brSmall}) {
     position: fixed;
     z-index: 1000;
     inset: 0 0 0 30%;
@@ -57,17 +77,30 @@ const StyledList = styled.ul`
     flex-direction: column;
     transform: ${(props) =>
       props.isOpen ? "translateX(0)" : "translateX(100%)"};
-    transition: transform 0.6s ease;
+    opacity: ${(props) => (props.isOpen ? 1 : 0)};
+    transition: transform 600ms ease, opacity 500ms ease-in-out;
   }
 
   @supports (backdrop-filter: blur(1rem)) {
     background: hsl(0 0% 100% / 0.05);
     backdrop-filter: blur(1.5rem);
-  } ;
+  }
+
+  @media (min-width: ${(props) => props.theme.brSmall}) {
+    padding-inline: clamp(3rem, 7vw, 7rem);
+  }
+  @media (min-width: ${(props) => props.theme.brMedium}) {
+    margin-block: 2rem;
+  }
+  @media (min-width: 35em) and (max-width: 44.999em) {
+    & a > span {
+      display: none;
+    }
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
-  padding: 2rem 0;
+  padding: 2.125rem 0;
   font-family: ${(props) => props.theme.ffSansCondens};
   font-size: ${(props) => props.theme.fs300};
   letter-spacing: 2.7px;
@@ -77,7 +110,7 @@ const StyledNavLink = styled(NavLink)`
   border: 0;
   border-bottom: 0.2rem solid hsl(0 0% 100% / 0);
 
-  @media (min-width: ${(props) => props.theme.mobile}) {
+  @media (min-width: ${(props) => props.theme.brMedium}) {
     &:hover {
       border-color: hsl(0 0% 100% / 0.5);
     }
@@ -86,7 +119,7 @@ const StyledNavLink = styled(NavLink)`
     }
   }
 
-  @media (max-width: ${(props) => props.theme.mobile}) {
+  @media (max-width: ${(props) => props.theme.brMedium}) {
     padding: 1rem 0;
   }
 
