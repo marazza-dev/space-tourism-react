@@ -6,6 +6,22 @@ import logoSvg from "../assets/shared/logo.svg";
 import openIcon from "../assets/shared/icon-hamburger.svg";
 import closeIcon from "../assets/shared/icon-close.svg";
 
+const SkipToContent = styled.a`
+  position: absolute;
+  z-index: 9999;
+  background: ${(props) => props.theme.clrWhite};
+  color: ${(props) => props.theme.clrDark};
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+
+  &:focus {
+    transform: translateY(0);
+  }
+`;
+
 const StyledHeader = styled.header`
   display: flex;
   gap: 1rem;
@@ -142,6 +158,7 @@ const Navbar = () => {
   };
   return (
     <>
+      <SkipToContent href='#main'>Skip to content</SkipToContent>
       <StyledHeader>
         <div>
           <img src={logoSvg} alt='space tourism logo' />
