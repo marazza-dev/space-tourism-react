@@ -157,22 +157,22 @@ const Navbar = () => {
           <StyledList isOpen={open}>
             <li>
               <StyledNavLink to='/' onClick={handleNavClick} end>
-                <span>00</span>Home
+                <span aria-hidden='true'>00</span>Home
               </StyledNavLink>
             </li>
             <li>
               <StyledNavLink to='/destination' onClick={handleNavClick}>
-                <span>01</span>Destination
+                <span aria-hidden='true'>01</span>Destination
               </StyledNavLink>
             </li>
             <li>
               <StyledNavLink to='/crew' onClick={handleNavClick}>
-                <span>02</span>Crew
+                <span aria-hidden='true'>02</span>Crew
               </StyledNavLink>
             </li>
             <li>
               <StyledNavLink to='/technology' onClick={handleNavClick}>
-                <span>03</span>Technology
+                <span aria-hidden='true'>03</span>Technology
               </StyledNavLink>
             </li>
           </StyledList>
