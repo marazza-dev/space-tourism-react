@@ -4,7 +4,7 @@ export const theme = {
   clrLight: "hsl(231 77% 90%)",
   clrWhite: "hsl(0 0% 100%)",
   // font-sizes
-  fs900: "9.375rem",
+  fs900: "clamp(5rem, 8vw + 1rem, 9.375rem)",
   fs800: "6.25rem",
   fs700: "3.5rem",
   fs600: "2rem",

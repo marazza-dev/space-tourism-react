@@ -25,7 +25,6 @@ const SkipToContent = styled.a`
 const StyledHeader = styled.header`
   display: flex;
   gap: 1rem;
-  border: 1px solid red;
   align-items: center;
   justify-content: space-between;
   & img {

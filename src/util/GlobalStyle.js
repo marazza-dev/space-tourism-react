@@ -41,13 +41,18 @@ html:focus-within {
 
 body {
   font-family: "Barlow", sans-serif;
-  font-size: 1.125rem;
+  font-size: 0.9375rem;
   color: hsl(0 0% 100%);
   background-color: hsl(230 35% 7%);
   min-height: 100vh;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   overflow-x: hidden;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+
+  @media (min-width: 35em) {font-size: 1rem};
+  @media (min-width: 45em) {font-size: 1.125rem};
 }
 
 a:not([class]) {
