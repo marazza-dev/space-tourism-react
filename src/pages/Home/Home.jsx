@@ -6,15 +6,16 @@ const StyledMain = styled.main`
   place-items: center;
   text-align: center;
   padding-inline: 1rem;
+  min-height: 82vh;
 
   & * {
-    max-width: 50ch;
+    max-width: 45ch;
   }
 
   @media (min-width: ${(props) => props.theme.brMedium}) {
     text-align: left;
     column-gap: 2rem;
-    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
         1rem,
         1fr
       );
@@ -55,7 +56,7 @@ const LargeButton = styled.a`
   border-radius: 50%;
   text-decoration: none;
   z-index: 1;
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   font-family: ${(props) => props.theme.ffSerif};
   color: ${(props) => props.theme.clrDark};
@@ -79,9 +80,6 @@ const LargeButton = styled.a`
     transform: scale(1.5);
   }
 
-  @media (min-width: ${(props) => props.theme.brSmall}) {
-    font-size: 1.5rem;
-  }
   @media (min-width: ${(props) => props.theme.brMedium}) {
     font-size: 2rem;
   }
