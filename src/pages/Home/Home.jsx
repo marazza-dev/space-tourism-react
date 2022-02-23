@@ -6,10 +6,12 @@ const StyledMain = styled.main`
   place-items: center;
   text-align: center;
   padding-inline: 1rem;
-  min-height: 82vh;
+  min-height: 80vh;
 
   & * {
-    max-width: 45ch;
+    @media (min-width: ${(props) => props.theme.brSmall}) {
+      max-width: 45ch;
+    }
   }
 
   @media (min-width: ${(props) => props.theme.brMedium}) {
@@ -34,10 +36,21 @@ const StyledMain = styled.main`
 
 const StyledHeading = styled.h1`
   color: ${(props) => props.theme.clrLight};
-  font-size: ${(props) => props.theme.fs500};
+  font-size: 1rem;
   font-family: ${(props) => props.theme.ffSansCondens};
+  letter-spacing: 2.7px;
   text-transform: uppercase;
-  letter-spacing: 4.75px;
+
+  @media (min-width: ${(props) => props.theme.brSmall}) {
+    font-size: 1.125rem;
+    letter-spacing: 3.38px;
+    margin: 0 auto;
+  }
+  @media (min-width: ${(props) => props.theme.brMedium}) {
+    font-size: ${(props) => props.theme.fs500};
+    letter-spacing: 4.75px;
+    margin: 0;
+  }
 `;
 
 const StyledSpan = styled.span`
