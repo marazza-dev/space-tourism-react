@@ -39,6 +39,7 @@ const StyledHeader = styled.header`
       height: 1px;
       width: 100%;
       margin-right: -2.5rem;
+      margin-left: 2rem;
       background: hsl(0 0% 100% / 0.25);
       order: 1;
     }
@@ -106,6 +107,9 @@ const StyledList = styled.ul`
   }
   @media (min-width: ${(props) => props.theme.brMedium}) {
     margin-block: 2rem;
+    & > li:last-child {
+      margin-right: 5rem;
+    }
   }
   @media (min-width: 35em) and (max-width: 44.999em) {
     & a > span {
