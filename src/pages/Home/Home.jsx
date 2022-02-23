@@ -114,7 +114,7 @@ const Home = () => {
           </p>
         </div>
         <div>
-          <LargeButton>Explore</LargeButton>
+          <LargeButton href='#'>Explore</LargeButton>
         </div>
       </StyledMain>
     </>
