@@ -42,7 +42,25 @@ const destinations = [
 ];
 
 const Main = styled.main``;
-const MainTitle = styled.h1``;
+const MainTitle = styled.h1`
+  font-family: ${(props) => props.theme.ffSansCondense};
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
+
+  & span {
+    margin-right: 0.5rem;
+    font-weight: 700;
+    color: hsl(0 0% 100% / 0.25);
+  }
+
+  @media (min-width: ${(props) => props.theme.brSmall}) {
+    font-size: 1.25rem;
+  }
+  @media (min-width: ${(props) => props.theme.brMedium}) {
+    font-size: 1.75rem;
+  }
+`;
 const TabList = styled.div``;
 const TabItem = styled.button`
   & ${(props) => props.active} {
