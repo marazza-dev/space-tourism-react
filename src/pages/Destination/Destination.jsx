@@ -41,12 +41,52 @@ const destinations = [
   },
 ];
 
-const Main = styled.main``;
+const Main = styled.main`
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+  padding-bottom: 2rem;
+  text-align: center;
+
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+
+  /* @media (min-width: ${(props) => props.theme.brMedium}) {
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+        1rem,
+        1fr
+      );
+    text-align: left;
+    columm-gap: 2rem;
+    & > *:first-child {
+      grid-column: 2;
+    }
+    & > *:last-child {
+      grid-column: 3;
+    }
+  } */
+
+  & > *:where(:not(:first-child)) {
+    margin-top: 2rem;
+  }
+
+  & > img {
+    grid-area: image;
+    max-width: 60%;
+  }
+  & > article {
+    grid-area: content;
+  }
+`;
 const MainTitle = styled.h1`
   font-family: ${(props) => props.theme.ffSansCondense};
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 4.72px;
+  grid-area: title;
 
   & span {
     margin-right: 0.5rem;
@@ -56,20 +96,78 @@ const MainTitle = styled.h1`
 
   @media (min-width: ${(props) => props.theme.brSmall}) {
     font-size: 1.25rem;
+    margin-top: 2rem;
+    justify-self: start;
   }
   @media (min-width: ${(props) => props.theme.brMedium}) {
     font-size: 1.75rem;
   }
 `;
-const TabList = styled.div``;
+const TabList = styled.div`
+  display: flex;
+  gap: 2rem;
+  grid-area: tabs;
+`;
 const TabItem = styled.button`
+  cursor: pointer;
+  padding: 1rem 0;
+  border: 0;
+  border-bottom: 0.2rem solid hsl(0 0% 100% / 0);
+  color: ${(props) => props.theme.clrLight};
+  background: transparent;
+  font-family: ${(props) => props.theme.ffSansCondense};
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+
   & ${(props) => props.active} {
-    color: red;
+    color: ${(props) => props.theme.clrWhite};
+    border-bottom: 0.2rem solid hsl(0 0% 100% / 1);
+  }
+  &:hover {
+    border-color: hsl(0 0% 100% / 0.5);
   }
 `;
-const ContentTitle = styled.h2``;
-const ContentDetails = styled.div``;
-const ContentSubtitle = styled.h3``;
+const ContentTitle = styled.h2`
+  font-family: ${(props) => props.theme.ffSerif};
+  font-size: 3.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  @media (min-width: ${(props) => props.theme.brSmall}) {
+    font-size: 5rem;
+  }
+  @media (min-width: ${(props) => props.theme.brMedium}) {
+    font-size: 6.25rem;
+  }
+`;
+const ContentDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid hsl(0 0% 100% / 0.3);
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+  @media (min-width: ${(props) => props.theme.brSmall}) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+`;
+const ContentSubtitle = styled.h3`
+  color: ${(props) => props.theme.clrLight};
+  text-transform: uppercase;
+  font-size: ${(props) => props.theme.fs200};
+
+  & > p {
+    font-family: ${(props) => props.theme.ffSerif};
+    font-size: 1rem;
+    text-transform: uppercase;
+    @media (min-width: ${(props) => props.theme.brSmall}) {
+      font-size: 1.25rem;
+    }
+    @media (min-width: ${(props) => props.theme.brMedium}) {
+      font-size: 1.75rem;
+    }
+  }
+`;
 
 const Destination = () => {
   const [activeTab, setActiveTab] = useState(0);
