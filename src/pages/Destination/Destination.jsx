@@ -54,20 +54,23 @@ const Main = styled.main`
     "tabs"
     "content";
 
-  /* @media (min-width: ${(props) => props.theme.brMedium}) {
+  @media (min-width: ${(props) => props.theme.brMedium}) {
     grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
         1rem,
         1fr
       );
     text-align: left;
     columm-gap: 2rem;
-    & > *:first-child {
-      grid-column: 2;
-    }
-    & > *:last-child {
-      grid-column: 3;
-    }
-  } */
+    grid-template-areas:
+      ". title title ."
+      ". image tabs ."
+      ". image content .";
+    justify-items: start;
+    align-content: start;
+  }
+  & > * {
+    max-width: 50ch;
+  }
 
   & > *:where(:not(:first-child)) {
     margin-top: 2rem;
@@ -76,6 +79,9 @@ const Main = styled.main`
   & > img {
     grid-area: image;
     max-width: 60%;
+    @media (min-width: ${(props) => props.theme.brMedium}) {
+      max-width: 90%;
+    }
   }
   & > article {
     grid-area: content;
@@ -149,6 +155,10 @@ const ContentDetails = styled.div`
   @media (min-width: ${(props) => props.theme.brSmall}) {
     flex-direction: row;
     justify-content: space-evenly;
+  }
+  @media (min-width: ${(props) => props.theme.brMedium}) {
+    justify-content: flex-start;
+    gap: min(10vw, 8rem);
   }
 `;
 const ContentSubtitle = styled.h3`
