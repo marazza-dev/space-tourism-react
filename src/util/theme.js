@@ -17,6 +17,6 @@ export const theme = {
   ffSansCondens: "Barlow Condensed, sans-serif",
   ffSansNormal: "Barlow, sans-serif",
   // breakpoints
-  brSmall: "35em",
-  brMedium: "45em",
+  brSmall: "35rem",
+  brMedium: "50rem",
 };
