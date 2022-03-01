@@ -49,21 +49,28 @@ const CrewMain = styled.main`
     "image"
     "dots"
     "content";
-
+  @media (min-width: ${(props) => props.theme.brSmall}) {
+    padding-bottom: 0;
+    grid-template-areas:
+      "title"
+      "content"
+      "dots"
+      "image";
+  }
   @media (min-width: ${(props) => props.theme.brMedium}) {
-    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
         1rem,
         1fr
       );
     text-align: left;
-    columm-gap: 2rem;
     grid-template-areas:
       ". title title ."
-      ". image tabs ."
-      ". image content .";
+      ". content image ."
+      ". dots image .";
+    column-gap: 2rem;
     justify-items: start;
-    align-content: start;
   }
+
   & > * {
     max-width: 50ch;
   }
@@ -75,12 +82,12 @@ const CrewMain = styled.main`
   & > img {
     grid-area: image;
     max-width: 60%;
+    border-bottom: 1px solid hsl(0 0% 100% / 0.1);
     @media (min-width: ${(props) => props.theme.brMedium}) {
       max-width: 90%;
+      align-self: end;
+      grid-column: span 2;
     }
-  }
-  & > article {
-    grid-area: content;
   }
 `;
 const CrewMainTitle = styled.h1`
@@ -136,7 +143,40 @@ const DotItem = styled.button`
     background-color: hsl(0 0% 100% / 0.5);
   }
 `;
-const CrewContentDetails = styled.article``;
+const CrewContentDetails = styled.article`
+  grid-area: content;
+  & *:where(:not(:first-child)) {
+    margin-top: 1rem;
+  }
+  & header {
+    & > p {
+      font-family: ${(props) => props.theme.ffSerif};
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      @media (min-width: ${(props) => props.theme.brSmall}) {
+        font-size: 2.5rem;
+      }
+      @media (min-width: ${(props) => props.theme.brMedium}) {
+        font-size: 3.5rem;
+      }
+    }
+    & *:where(:not(:first-child)) {
+      margin-top: 0.75rem;
+    }
+  }
+  & h2 {
+    font-family: ${(props) => props.theme.ffSerif};
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: hsl(0 0% 100% / 0.5);
+    @media (min-width: ${(props) => props.theme.brSmall}) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: ${(props) => props.theme.brMedium}) {
+      font-size: 2rem;
+    }
+  }
+`;
 
 const Crew = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -151,7 +191,7 @@ const Crew = () => {
   };
   return (
     <>
-      <CrewMain>
+      <CrewMain id='main'>
         <CrewMainTitle>
           <span aria-hidden='true'>02</span> Meet the crew
         </CrewMainTitle>
@@ -164,7 +204,7 @@ const Crew = () => {
                 active={isActive(index)}
                 onClick={() => setActiveTab(index)}
               >
-                <SrOnly>{item.name}</SrOnly>
+                <SrOnly aria-hidden='true'>{item.name}</SrOnly>
               </DotItem>
             );
           })}
