@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import { MainTitle } from "../../util/MainTitle.styled";
+import { MainTitle } from "../../styles/MainTitle.styled";
+import { SrOnly } from "../../styles/SrOnly.styled";
 
 import launchPortrait from "../../assets/technology/image-launch-vehicle-portrait.jpg";
 import launchLandscape from "../../assets/technology/image-launch-vehicle-landscape.jpg";
@@ -9,7 +10,6 @@ import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.
 import spaceportLandscape from "../../assets/technology/image-spaceport-landscape.jpg";
 import capsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
 import capsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
-import { SrOnly } from "../../util/SrOnly.styled";
 
 const techs = [
   {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { SrOnly } from "../../util/SrOnly.styled";
-import { MainTitle } from "../../util/MainTitle.styled";
+import { SrOnly } from "../../styles/SrOnly.styled";
+import { MainTitle } from "../../styles/MainTitle.styled";
 
 import commanderImg from "../../assets/crew/image-douglas-hurley.png";
 import specialistImg from "../../assets/crew/image-mark-shuttleworth.png";

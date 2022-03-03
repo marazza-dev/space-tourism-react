@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { MainTitle } from "../../util/MainTitle.styled";
+import { MainTitle } from "../../styles/MainTitle.styled";
 
 import moonImg from "../../assets/destination/image-moon.png";
 import marsImg from "../../assets/destination/image-mars.png";
