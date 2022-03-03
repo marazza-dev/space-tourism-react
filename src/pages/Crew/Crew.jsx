@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import { SrOnly } from "../../util/SrOnly.styled";
+import { MainTitle } from "../../util/MainTitle.styled";
+
 import commanderImg from "../../assets/crew/image-douglas-hurley.png";
 import specialistImg from "../../assets/crew/image-mark-shuttleworth.png";
 import pilotImg from "../../assets/crew/image-victor-glover.png";
@@ -90,39 +93,6 @@ const CrewMain = styled.main`
     }
   }
 `;
-const CrewMainTitle = styled.h1`
-  font-family: ${(props) => props.theme.ffSansCondense};
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 4.72px;
-  grid-area: title;
-
-  & span {
-    margin-right: 0.5rem;
-    font-weight: 700;
-    color: hsl(0 0% 100% / 0.25);
-  }
-
-  @media (min-width: ${(props) => props.theme.brSmall}) {
-    font-size: 1.25rem;
-    margin-top: 2rem;
-    justify-self: start;
-  }
-  @media (min-width: ${(props) => props.theme.brMedium}) {
-    font-size: 1.75rem;
-  }
-`;
-const SrOnly = styled.span`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-`;
 const DotList = styled.div`
   display: flex;
   gap: 2rem;
@@ -143,7 +113,7 @@ const DotItem = styled.button`
     background-color: hsl(0 0% 100% / 0.5);
   }
 `;
-const CrewContentDetails = styled.article`
+const CrewContent = styled.article`
   grid-area: content;
   & *:where(:not(:first-child)) {
     margin-top: 1rem;
@@ -192,9 +162,9 @@ const Crew = () => {
   return (
     <>
       <CrewMain id='main'>
-        <CrewMainTitle>
+        <MainTitle>
           <span aria-hidden='true'>02</span> Meet the crew
-        </CrewMainTitle>
+        </MainTitle>
         <img src={tabContent.image} alt={tabContent.name} />
         <DotList>
           {crews.map((item, index) => {
@@ -209,13 +179,13 @@ const Crew = () => {
             );
           })}
         </DotList>
-        <CrewContentDetails>
+        <CrewContent>
           <header>
             <h2>{tabContent.role}</h2>
             <p>{tabContent.name}</p>
           </header>
           <p>{tabContent.description}</p>
-        </CrewContentDetails>
+        </CrewContent>
       </CrewMain>
     </>
   );

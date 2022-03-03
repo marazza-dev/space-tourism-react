@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { SrOnly } from "../util/SrOnly";
+import { SrOnly } from "../util/SrOnly.styled";
 import logoSvg from "../assets/shared/logo.svg";
 import openIcon from "../assets/shared/icon-hamburger.svg";
 import closeIcon from "../assets/shared/icon-close.svg";
