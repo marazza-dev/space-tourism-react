@@ -4,7 +4,7 @@ export const MainTitle = styled.h1`
   font-family: ${(props) => props.theme.ffSansCondense};
   font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: 4.72px;
+  letter-spacing: 2.7px;
   grid-area: title;
 
   & span {
@@ -17,8 +17,10 @@ export const MainTitle = styled.h1`
     font-size: 1.25rem;
     margin-top: 2rem;
     justify-self: start;
+    letter-spacing: 3.38px;
   }
   @media (min-width: ${(props) => props.theme.brMedium}) {
     font-size: 1.75rem;
+    letter-spacing: 4.72px;
   }
 `;

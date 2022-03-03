@@ -30,6 +30,10 @@ p {
   font-weight: 400;
 }
 
+p {
+  color: ${(props) => props.theme.clrLight};
+}
+
 ul[role='list'],
 ol[role='list'] {
   list-style: none;

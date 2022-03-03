@@ -98,7 +98,7 @@ const StyledList = styled.ul`
   }
 
   @supports (backdrop-filter: blur(1rem)) {
-    background: hsl(0 0% 100% / 0.05);
+    background: hsl(230 35% 7% / 0.5);
     backdrop-filter: blur(1.5rem);
   }
 
@@ -129,7 +129,7 @@ const StyledNavLink = styled(NavLink)`
   border: 0;
   border-bottom: 0.2rem solid hsl(0 0% 100% / 0);
 
-  @media (min-width: ${(props) => props.theme.brMedium}) {
+  @media (min-width: ${(props) => props.theme.brSmall}) {
     &:hover {
       border-color: hsl(0 0% 100% / 0.5);
     }

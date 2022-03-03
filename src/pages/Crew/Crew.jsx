@@ -115,6 +115,11 @@ const DotItem = styled.button`
 `;
 const CrewContent = styled.article`
   grid-area: content;
+
+  & > p {
+    line-height: 1.8;
+  }
+
   & *:where(:not(:first-child)) {
     margin-top: 1rem;
   }
@@ -122,12 +127,14 @@ const CrewContent = styled.article`
     & > p {
       font-family: ${(props) => props.theme.ffSerif};
       font-size: 1.5rem;
+      color: ${(props) => props.theme.clrWhite};
       text-transform: uppercase;
       @media (min-width: ${(props) => props.theme.brSmall}) {
         font-size: 2.5rem;
       }
       @media (min-width: ${(props) => props.theme.brMedium}) {
         font-size: 3.5rem;
+        width: 125%;
       }
     }
     & *:where(:not(:first-child)) {
@@ -135,6 +142,7 @@ const CrewContent = styled.article`
     }
   }
   & h2 {
+    margin-bottom: -10px;
     font-family: ${(props) => props.theme.ffSerif};
     font-size: 1rem;
     text-transform: uppercase;

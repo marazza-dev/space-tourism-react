@@ -103,7 +103,11 @@ const TabItem = styled.button`
   background: transparent;
   font-family: ${(props) => props.theme.ffSansCondense};
   text-transform: uppercase;
-  letter-spacing: 2.7px;
+  letter-spacing: 2.36px;
+
+  @media (min-width: ${(props) => props.theme.brMedium}) {
+    letter-spacing: 2.7px;
+  }
 
   & ${(props) => props.active} {
     color: ${(props) => props.theme.clrWhite};
@@ -145,6 +149,7 @@ const ContentSubtitle = styled.h3`
   color: ${(props) => props.theme.clrLight};
   text-transform: uppercase;
   font-size: ${(props) => props.theme.fs200};
+  letter-spacing: 2.36px;
 
   & > p {
     font-family: ${(props) => props.theme.ffSerif};
@@ -157,6 +162,13 @@ const ContentSubtitle = styled.h3`
       font-size: 1.75rem;
     }
   }
+`;
+
+const ContentValue = styled.p`
+  color: ${(props) => props.theme.clrWhite};
+  font-family: ${(props) => props.theme.ffSerif};
+  font-size: 1.75rem;
+  text-transform: uppercase;
 `;
 
 const Destination = () => {
@@ -196,11 +208,11 @@ const Destination = () => {
           <ContentDetails>
             <div>
               <ContentSubtitle>Avg. distance</ContentSubtitle>
-              <p>{tabContent.distance}</p>
+              <ContentValue>{tabContent.distance}</ContentValue>
             </div>
             <div>
               <ContentSubtitle>Est. travel time</ContentSubtitle>
-              <p>{tabContent.travel}</p>
+              <ContentValue>{tabContent.travel}</ContentValue>
             </div>
           </ContentDetails>
         </article>
