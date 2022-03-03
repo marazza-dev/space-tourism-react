@@ -18,6 +18,7 @@ const techs = [
       "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operations. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch",
     image_portrait: launchPortrait,
     image_landscape: launchLandscape,
+    number: 1,
   },
   {
     title: "SPACEPORT",
@@ -25,6 +26,7 @@ const techs = [
       "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.",
     image_portrait: spaceportPortrait,
     image_landscape: spaceportLandscape,
+    number: 2,
   },
   {
     title: "SPACE CAPSULE",
@@ -32,13 +34,44 @@ const techs = [
       "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.",
     image_portrait: capsulePortrait,
     image_landscape: capsuleLandscape,
+    number: 3,
   },
 ];
 
-const TechMain = styled.main``;
-const NumberList = styled.div``;
-const NumberItem = styled.button``;
-const TechContent = styled.article``;
+const TechMain = styled.main`
+  display: grid;
+  place-items: center;
+  padding-bottom: 2rem;
+  text-align: center;
+
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "details";
+
+  & > img {
+    grid-area: image;
+  }
+`;
+const NumberList = styled.div`
+  grid-area: tabs;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const NumberItem = styled.button`
+  padding: 1.5rem;
+  border-radius: 50%;
+  color: ${(props) => props.theme.clrWhite};
+  border: 1px solid hsl(0 0% 100% / 0.25);
+  background: hsl(0 0% 100% / 0);
+  cursor: pointer;
+`;
+const TechContent = styled.article`
+  grid-area: details;
+`;
 
 const Technology = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -73,7 +106,7 @@ const Technology = () => {
                 active={isActive(index)}
                 onClick={() => setActiveTab(index)}
               >
-                <SrOnly>{item.title}</SrOnly>
+                {index + 1} <SrOnly>{item.title}</SrOnly>
               </NumberItem>
             );
           })}
