@@ -52,6 +52,7 @@ const TechMain = styled.main`
 
   & > img {
     grid-area: image;
+    margin-top: 2rem;
   }
 `;
 const NumberList = styled.div`
@@ -60,17 +61,54 @@ const NumberList = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-block: 1.5rem;
 `;
 const NumberItem = styled.button`
-  padding: 1.5rem;
+  width: 3rem;
+  aspect-ratio: 1;
   border-radius: 50%;
   color: ${(props) => props.theme.clrWhite};
   border: 1px solid hsl(0 0% 100% / 0.25);
   background: hsl(0 0% 100% / 0);
   cursor: pointer;
+  font-family: ${(props) => props.theme.ffSerif};
+  font-size: 1.125rem;
+
+  & ${(props) => props.active} {
+    background: hsl(0 0% 100% / 1);
+    color: #222222;
+  }
+
+  &:hover,
+  &:focus {
+    border: 2px solid hsl(0 0% 100% / 0.75);
+  }
 `;
 const TechContent = styled.article`
   grid-area: details;
+
+  & header {
+    margin-bottom: 0.5rem;
+
+    & h2 {
+      font-family: ${(props) => props.theme.ffSansCondens};
+      font-size: 1rem;
+      color: ${(props) => props.theme.clrLight};
+      letter-spacing: 2.36px;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    & p {
+      font-family: ${(props) => props.theme.ffSerif};
+      font-size: 1.5rem;
+      color: ${(props) => props.theme.clrWhite};
+    }
+  }
+
+  & p {
+    padding-inline: 2rem;
+    line-height: 1.85;
+  }
 `;
 
 const Technology = () => {
@@ -113,7 +151,7 @@ const Technology = () => {
         </NumberList>
         <TechContent>
           <header>
-            <h2>the terminology ...</h2>
+            <h2>the terminology...</h2>
             <p>{tabContent.title}</p>
           </header>
           <p>{tabContent.content}</p>

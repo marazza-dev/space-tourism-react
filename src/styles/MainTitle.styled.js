@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainTitle = styled.h1`
-  font-family: ${(props) => props.theme.ffSansCondense};
+  font-family: ${(props) => props.theme.ffSansCondens};
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 2.7px;
