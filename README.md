@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/space-tourism-solution-with-react-styled-components-and-vite-bcHMxgebD)
 - Live Site URL: [https://marazza-dev.github.io/space-tourism-react/](https://marazza-dev.github.io/space-tourism-react/)
 
 ## My process
