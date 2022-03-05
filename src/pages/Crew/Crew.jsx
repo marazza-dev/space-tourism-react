@@ -97,6 +97,9 @@ const DotList = styled.div`
   display: flex;
   gap: 2rem;
   grid-area: dots;
+  @media (min-width: ${(props) => props.theme.brMedium}) {
+    place-self: start;
+  }
 `;
 const DotItem = styled.button`
   cursor: pointer;
